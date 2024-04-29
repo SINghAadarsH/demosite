@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Form</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <style>
+        div {
+            padding: 15px 15px;
+            text-align: left;
+            color: rgb(0, 0, 0);
+            font-size: larger;
+        }
+        
+        body {
+            background-image: url('');
+            background-repeat: no-repeat;
+            background-position: center;
+            background-attachment: fixed;
+            background-size: cover;
+        }
+        
+        .cl {
+            padding: 20px 60px;
+            background-color: rgb(32, 37, 37);
+            border-radius: 1cm;
+            color: rgb(65, 205, 230);
+            font-family: Georgia, 'Times New Roman', Times, serif;
+        }
+        
+        .formsetup {
+            background-image: url('/Users/adarshsingh/Documents/ARE YOU HUNGRY/images/Top-food-bloggers-in-India.webp');
+            background-repeat: no-repeat;
+            background-position: center;
+            background-attachment: fixed;
+            background-size: cover;
+        }
+        
+        .text {
+            font-family: 'Times New Roman', Times, serif;
+            color: rgb(255, 255, 255);
+        }
+
+        #h1{
+            color: brown;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div>
+        <div id="home" role="tabpanel" aria-labelledby="home-tab">
+            <h1><b>LOGIN PAGE</b></h1>
+            <div class="formsetup">
+
+                <form method="post" autocomplete="off" name="google-sheet">
+                    <div>
+                        <input type="text" name="Name" placeholder="Your Name *" value="" required="" />
+                    </div>
+                    <div>
+                        <input type="text" name="Email" placeholder="Your Email *" value="" required="" />
+                    </div>
+                    <div>
+                        <input type="number" name="Phone" placeholder="Your Contact Number *" value="" required="" />
+                    </div>
+                    <div class="text">
+                        <input type="radio" name="Gender" value="Male" />
+                        <label for="Gender">Male</label>
+                        <input type="radio" name="Gender" value="Female" />
+                        <label for="Gender">Female</label>
+                        <input type="radio" name="Gender" value="Others" />
+                        <label for="Gender">Others</label>
+                    </div>
+                    <div>
+                        <input type="number" name="Age" placeholder="Age *" value="" required="" />
+                    </div>
+                    <div>
+                        <input type="submit" name="submit" class="cl" value="Login" />
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbykYt8XbOPersbRULb5_eyNyLvTYrnpYvez_Fxstqq_QUyfDf52uRTEy1EImKTqB_0O/exec'
+        const form = document.forms['google-sheet']
+
+        form.addEventListener('submit', e => {
+            e.preventDefault()
+            fetch(scriptURL, {
+                    method: 'POST',
+                    body: new FormData(form)
+                })
+                .then(response => alert("Thanks for Contacting us..! We Will Contact You Soon..."))
+                .catch(error => console.error('Error!', error.message))
+        })
+    </script>
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</body>
+
+</html>
